@@ -16,9 +16,9 @@ I also chose this piece because I wanted to work with lines more since I never r
 
 The transform functions are located near the top of the script.
 
-- translate(x, y) — moves elements
-- rotate(angle) — rotates elements
-- compose(...transforms) — combines transform strings
+- translate(x, y) - moves elements
+- rotate(angle) - rotates elements
+- compose(...transforms) - combines transform strings
 
 These functions are designed to be reusable for SVG elements.
 
