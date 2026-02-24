@@ -24,7 +24,7 @@ These functions are designed to be reusable for SVG elements.
 
 ## Important Design Decisions
 
-- Each line is placed inside a g element so each line and the transforms can be separated.
+- Each line is placed inside a g element so each line with the transforms can be separated.
 - Tried to structure the code in an experimental way so that it is easier to change line length and line segment number. 
   
 ## File
