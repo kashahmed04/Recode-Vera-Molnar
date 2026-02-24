@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Recode Vera Molnar</title>
+
+<style>
+/*styles to make the design show up on the middle of the screen*/
+body{
+    background:white;
+    display:flex;
+    justify-content:center;
+    padding-top:250px;
+}
+
+svg{
+    background:white;
+}
+</style>
+</head>
+
+<body>
+
+<!--create the SVG-->
+<svg id="art" width="700" height="900"></svg>
+
+<script>
+
+const NS = "http://www.w3.org/2000/svg";
+const svg = document.getElementById("art");
+
+const WIDTH = 700;
+const HEIGHT = 900;
+
+//number of line segments in the image 
+//can change number to make it more busy or less busy 
+const SEGMENTS = 2200;
+
+//line length range for each line
+//can change the length to varying sizes 
+const MIN_LEN = 8;
+const MAX_LEN = 48;
+
+//helper transform functions 
+function translate(x,y){
+    return `translate(${x},${y})`;
+}
+
+function rotate(a){
+    return `rotate(${a})`;
+}
+
+//creates a string of transforms each having a space after it 
+//basically allows multiple transforms to be applied to a line
+//... notation means this funtion can take any
+//number of paramters (transforms)
+function compose(...t){
+    return t.join(" ");
+}
+
+//create each line with a certain length 
+function createLine(len){
+
+    //create the line in the SVG namespace since it will be an SVG image
+    const line = document.createElementNS(NS,"line");
+
+    //positioning of each line 
+    line.setAttribute("x1",-len/2);
+    line.setAttribute("y1",0);
+    line.setAttribute("x2",len/2);
+    line.setAttribute("y2",0);
+
+    //stroke styling for each line 
+    line.setAttribute("stroke","black");
+    line.setAttribute("stroke-width","1");
+    line.setAttribute("stroke-linecap","round");
+
+    return line;
+}
+
+//generate the whole SVG 
+for(let i = 0; i < SEGMENTS; i++){
+
+    //g element to put our lines and transforms in 
+    const g = document.createElementNS(NS,"g");
+
+    //random distribution within the SVG 
+    const x = Math.random() * WIDTH;
+    const y = Math.random() * HEIGHT;
+
+    //short stroke length for lines 
+    const len = MIN_LEN + Math.random()*(MAX_LEN-MIN_LEN);
+
+    //random orientation
+    const angle = Math.random() * 180;
+
+    //create the line then append it to the g element 
+    const line = createLine(len);
+
+    //each line and transform is a separate g element 
+    g.appendChild(line);
+
+    //transform the line 
+    g.setAttribute(
+        "transform",
+        compose(
+            translate(x,y),
+            rotate(angle)
+        )
+    );
+
+    //append the g element to the SVG 
+    svg.appendChild(g);
+}
+
+</script>
+
+</body>
+</html>
