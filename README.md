@@ -29,4 +29,4 @@ These functions are designed to be reusable for SVG elements.
   
 ## File
 
-- index.html — Main program file.
+- index.html - Main program file.
