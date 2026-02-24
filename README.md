@@ -10,7 +10,7 @@ Open the HTML file in a web browser.
 ## Which Piece I Chose and Why
 
 I chose the Interruptions piece because it shows how simple elements and randomness can create various visual patterns. 
-I also chose this piece because I wanted to work with lines more since I never really worked with them before.
+I also chose this piece because I wanted to work with lines more since I never really work with them.
 
 ## Where to Find Transform Components
 
